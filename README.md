@@ -56,6 +56,7 @@ mvn verify
 ```
 
 ## Code Structure
+```
 src/
 ├── main/
 │   ├── kotlin/
@@ -77,5 +78,4 @@ src/
 │   │       └── service/           # Unit tests
 │   └── resources/                 # Test-specific resources
 
-
-
+```
