@@ -15,7 +15,7 @@ A modern, Kotlin-based microservice built with Spring Boot. This service integra
 
 Before running the application, ensure you have the following installed:
 
-- [JDK 17+](https://adoptopenjdk.net/)
+- [JDK 21+](https://adoptopenjdk.net/)
 - [Maven](https://maven.apache.org/) (for dependency management)
 - [Docker](https://www.docker.com/) (for Testcontainers)
 
@@ -58,16 +58,24 @@ mvn verify
 ## Code Structure
 src/
 ├── main/
-│   ├── kotlin/          # Kotlin source files
-│   │   └── com/wranto/spring_boot_multimodule  # Your package structure
+│   ├── kotlin/
+│   │   └── com/wranto/spring_boot_multimodule  # Your main application package
+│   │       ├── config/            # Configuration classes
+│   │       ├── controller/        # REST/GraphQL controllers
+│   │       ├── service/           # Business logic services
+│   │       ├── repository/        # JPA repositories
+│   │       └── domain/            # Domain models/entities
 │   ├── resources/
-│       ├── application.yml    # Default configuration
-│       ├── application-local.yml # Local configuration (optional)
-│       └── db/migration/      # Flyway/Liquibase scripts (if any)
-└── test/
-├── kotlin/com/wranto/spring_boot_multimodule    
-    ├── integrationTest      # Integration Test
-    ├── service              # Unit test
-└── resources/             # Test resources
+│       ├── application.properties        # Default configuration
+│       ├── application-integration.properties  # Integration test environment configuration (optional)
+│       └── db/
+│           └── migration/         # Flyway/Liquibase migration scripts
+├── test/
+│   ├── kotlin/
+│   │   └── com/wranto/spring_boot_multimodule
+│   │       ├── integrationTest/   # Integration tests
+│   │       └── service/           # Unit tests
+│   └── resources/                 # Test-specific resources
+
 
 
